@@ -10,6 +10,10 @@ document.addEventListener("DOMContentLoaded", function() {
     if (savedTheme) {
         document.body.className = savedTheme;
     }
+    else {
+        document.body.className = "light";
+        localStorage.setItem('theme', "light");
+    }
 
     // Load saved language from localStorage if it exists
     const savedLanguage = localStorage.getItem('language');
