@@ -1,0 +1,384 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Header styles */
+header {
+    background-color: var(--header-background);
+    color: var(--header-text-color);
+    padding: 10px 20px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-title {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    color: var(--header-text-color);
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Navbar right-side container */
+#navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Language dropdown styles */
+#language-dropdown {
+    margin-right: 20px;
+    padding: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Theme switcher styles */
+#theme-switcher {
+    margin-left: 10px;
+}
+
+#theme-switcher button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Section styles */
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    margin-bottom: 20px;
+    font-size: 1.75em;
+    border-bottom: 2px solid var(--section-border-color);
+    padding-bottom: 5px;
+}
+
+/* News cards styles */
+.news-cards {
+    display: flex;
+    flex-wrap: nowrap; /* Ensure cards are in a single line */
+    gap: 20px;
+    padding: 0 20px;
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+}
+
+.news-card {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    background-color: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    overflow: hidden; /* Hide overflow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; /* Prevent shrinking of cards */
+}
+
+.light .news-card {
+    border-color: #ddd; /* Light border color */
+    background-color: #fff;
+    color: #000; /* White background for light theme */
+}
+
+.light .news-card:hover,
+.light .news-card:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lighter shadow for light theme */
+}
+
+/* Dark Theme */
+.dark .news-card {
+    border-color: #444; /* Darker border color */
+    background-color: #333; /* Dark background for dark theme */
+    color: #fff; /* Light text color for readability */
+}
+
+.dark .news-card:hover,
+.dark .news-card:focus {
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3); /* Lighter shadow for dark theme */
+}
+
+/* High Contrast Theme */
+.high-contrast .news-card {
+    border-color: #000; /* Black border for high contrast */
+    background-color: #000; /* Yellow background for high contrast */
+    color: #ffff00; /* Black text color for high contrast */
+}
+
+.high-contrast .news-card:hover,
+.high-contrast .news-card:focus {
+    box-shadow: 0 4px 8px rgb(255, 242, 0); /* Strong shadow for high contrast */
+}
+
+.news-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-right: 1px solid var(--card-border);
+}
+
+
+.news-content {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.news-content h3 {
+    margin: 0 0 10px;
+    font-size: 1.25em;
+}
+
+.news-content p {
+    margin: 0;
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+/* Footer styles */
+footer {
+    background-color: #f1f1f1; /* Light background for the footer */
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+footer p {
+    margin: 5px 0;
+    color: #333; /* Dark text color for readability */
+}
+
+footer a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* Remove underline from links */
+}
+
+footer a:hover,
+footer a:focus {
+    text-decoration: underline; /* Underline on hover/focus for better visibility */
+}
+
+/* Light Theme Footer */
+.light footer {
+    background-color: #fff; /* White background for light theme */
+    color: #333; /* Dark text color for light theme */
+}
+
+.light footer a {
+    color: #007bff; /* Blue link color for light theme */
+}
+
+/* Dark Theme Footer */
+.dark footer {
+    background-color: #333; /* Dark background for dark theme */
+    color: #ffffff; /* Light text color for dark theme */
+}
+
+.dark footer a {
+    color: #4a90e2; /* Light blue link color for dark theme */
+}
+
+.dark footer p {
+    color: #fff; /* Light blue link color for dark theme */
+}
+
+/* High Contrast Theme Footer */
+.high-contrast footer {
+    background-color: #ffff00; /* Yellow background for high contrast */
+    color: #000; /* Black text color for high contrast */
+}
+
+.high-contrast footer a {
+    color: #000; /* Black link color for high contrast */
+}
+
+/* Light Theme */
+body.light {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --header-background: #f8f8f8;
+    --header-text-color: #333333;
+    --card-background: #ffffff;
+    --card-border: #dddddd;
+    --footer-background: #f8f8f8;
+    --footer-text-color: #333333;
+    --section-border-color: #cccccc;
+}
+
+/* Dark Theme */
+body.dark {
+    --background-color: #333333;
+    --text-color: #ffffff;
+    --header-background: #444444;
+    --header-text-color: #ffffff;
+    --card-background: #555555;
+    --card-border: #666666;
+    --footer-background: #444444;
+    --footer-text-color: #ffffff;
+    --section-border-color: #666666;
+}
+
+/* High Contrast Theme */
+body.high-contrast {
+    --background-color: #000000;
+    --text-color: #ffff00; /* Yellow text for high contrast */
+    --header-background: #000000;
+    --header-text-color: #ffff00; /* Yellow text for high contrast */
+    --card-background: #000000;
+    --card-border: #ffff00; /* Yellow border for high contrast */
+    --footer-background: #000000;
+    --footer-text-color: #ffff00; /* Yellow text for high contrast */
+    --section-border-color: #ffff00; /* Yellow section border */
+}
+
+/* News Topic Page Styles */
+#news-topic {
+    padding: 20px;
+}
+
+.headline-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.news-headline {
+    margin: 0;
+    font-size: 2em;
+    flex-grow: 1;
+}
+
+#text-to-speech {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#text-to-speech:hover {
+    background-color: var(--button-hover-background);
+}
+
+/* Light Theme Button Colors */
+body.light #text-to-speech {
+    --button-background: #007bff;
+    --button-text-color: #ffffff;
+    --button-hover-background: #0056b3;
+}
+
+/* Dark Theme Button Colors */
+body.dark #text-to-speech {
+    --button-background: #1e7e34;
+    --button-text-color: #ffffff;
+    --button-hover-background: #155724;
+}
+
+/* High Contrast Theme Button Colors */
+body.high-contrast #text-to-speech {
+    --button-background: #ffff00;
+    --button-text-color: #000000;
+    --button-hover-background: #ffcc00;
+}
+
+#translate {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#translate:hover {
+    background-color: var(--button-hover-background);
+}
+
+/* Light Theme Button Colors */
+body.light #translate {
+    --button-background: #007bff;
+    --button-text-color: #ffffff;
+    --button-hover-background: #0056b3;
+}
+
+/* Dark Theme Button Colors */
+body.dark #translate {
+    --button-background: #1e7e34;
+    --button-text-color: #ffffff;
+    --button-hover-background: #155724;
+}
+
+/* High Contrast Theme Button Colors */
+body.high-contrast #translate {
+    --button-background: #ffff00;
+    --button-text-color: #000000;
+    --button-hover-background: #ffcc00;
+}
+
+.news-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.news-detail img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.news-detail .news-content {
+    text-align: left;
+    max-width: 800px;
+}
+
+.news-detail .news-content p {
+    margin: 0 0 20px;
+}

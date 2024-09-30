@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>News Topic - Today's News</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <header>
+        <div class="navbar">
+            <h1 class="site-title">Today's News</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#top-stories">Top Stories</a></li>
+                    <li><a href="index.html#world-news">World News</a></li>
+                    <li><a href="index.html#tech">Tech</a></li>
+                    <li><a href="index.html#sports">Sports</a></li>
+                </ul>
+            </nav>
+            <div id="navbar-right">
+                <select id="language-dropdown" aria-label="Select audio language">
+                    <option value="en">English</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="it">Italian</option>
+                    <option value="pt">Portuguese</option>
+                    <option value="hi">Hindi</option>
+                </select>
+                <div id="theme-switcher">
+                    <button data-theme="light">Light</button>
+                    <button data-theme="dark">Dark</button>
+                    <button data-theme="high-contrast">High Contrast</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="news-topic">
+            <div class="headline-container container-fluid">
+                <h2 class="news-headline" id="headline">News Topic Headline</h2>
+                <button id="translate" aria-label="Translate this news">🌐 Translate</button>
+                <button id="text-to-speech" aria-label="Listen to this news">🔊 Listen</button>
+            </div>
+            <article class="news-detail">
+                <img src="https://via.placeholder.com/600x400" alt="News Topic Image">
+                <div class="news-content">
+                    <p  id="content">Hi! I'm Harshini, and I'm excited to introduce myself. I'm someone who enjoys learning, exploring new ideas, and connecting with others. My interests range from technology, reading, traveling, etc. and I love engaging in meaningful conversations.</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Today's News. All rights reserved.</p>
+        <p>Email: <a href="mailto:info@newswebsite.com">info@todaysnews.com</a></p>
+        <p>Mobile: <a href="tel:+1234567890">+91 1234567890</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
