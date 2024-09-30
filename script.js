@@ -89,6 +89,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     $('#translate').on('click', function () {
+        if (window.speechSynthesis.speaking && currentUtterance) {
+            // If speech is already playing, cancel it
+            window.speechSynthesis.cancel();
+            currentUtterance = null;
+        }
         var curlang = $('#language-dropdown').val();
         tlang = curlang;
         if (curlang == "en"){
