@@ -382,3 +382,45 @@ body.high-contrast #translate {
 .news-detail .news-content p {
     margin: 0 0 20px;
 }
+
+css
+#scrollTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 30px; /* Position it 30px from the bottom */
+    right: 30px; /* Position it 30px from the right */
+    font-size: 36px; /* Bigger font size for a larger button */
+    background-color: #007bff; /* Blue background */
+    color: white;
+    border: none;
+    padding: 20px 25px; /* Increased padding for a larger button */
+    border-radius: 50%; /* Circle shape */
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    transition: opacity 0.3s ease; /* Smooth transition */
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+#scrollTopBtn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+For volume slider
+
+css
+#volume-slider {
+    width: 150px;
+}
+
+#zoom-controls {
+    display: flex;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+#zoom-controls button {
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+

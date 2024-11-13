@@ -37,6 +37,11 @@
                     <button data-theme="dark">Dark</button>
                     <button data-theme="high-contrast">High Contrast</button>
                 </div>
+                <div id="zoom-controls">
+                    <button id="zoom-in" aria-label="Zoom In">A+</button>
+                    <button id="zoom-out" aria-label="Zoom Out">A-</button>
+                    <button id="reset-zoom" aria-label="Reset Zoom">Reset</button>
+                </div>
             </div>
         </div>
     </header>
@@ -47,12 +52,14 @@
                 <h2 class="news-headline" id="headline">Why Agricultural Land could be your next smart investment</h2>
                 <button id="translate" aria-label="Translate this news">🌐 Translate</button>
                 <button id="text-to-speech" aria-label="Listen to this news">🔊 Listen</button>
+                <label for="volume-slider" id="volume-label" style="display: none;">Volume:</label>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1" style="display: inline;">
             </div>
             <article class="news-detail">
                 <img src="https://via.placeholder.com/600x400" alt="News Topic Image">
                 <div class="news-content">
                     <div id="content">
-                        <p>When it comes to investment, there’s a popular saying: “Don’t put all your eggs in one basket.” I’m sure you’ve heard this proverb. Typically, this saying is used in the context of investments but it can also be applied to real estate investments. In the realm of real estate, the primary investment options generally fall into two categories: residential and commercial properties.</p>
+                        <p>When it comes to investment, there's a popular saying: “Don't put all your eggs in one basket.” I'm sure you've heard this proverb. Typically, this saying is used in the context of investments but it can also be applied to real estate investments. In the realm of real estate, the primary investment options generally fall into two categories: residential and commercial properties.</p>
                     </div>
                 </div>
             </article>
@@ -63,6 +70,7 @@
         <p>&copy; 2024 Today's News. All rights reserved.</p>
         <p>Email: <a href="mailto:info@newswebsite.com">info@todaysnews.com</a></p>
         <p>Mobile: <a href="tel:+1234567890">+91 1234567890</a></p>
+        <button id="scrollTopBtn" title="Go to top">&#8679;</button>
     </footer>
 
     <script src="script.js"></script>

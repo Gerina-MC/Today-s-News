@@ -1,9 +1,72 @@
+//making changes
 document.addEventListener("DOMContentLoaded", function() {
     const themeSwitcher = document.getElementById('theme-switcher');
     const languageDropdown = document.getElementById('language-dropdown');
     const textToSpeechButton = document.getElementById('text-to-speech');
 
+    let fontSize = 16;  // Default font size in pixels
+
+    // Function to update the font size
+    function updateFontSize() {
+        document.body.style.fontSize = fontSize + 'px';
+    }
+
+    // Zoom In Button
+    document.getElementById('zoom-in').addEventListener('click', function () {
+        fontSize += 2;
+        updateFontSize();
+    });
+
+    // Zoom Out Button
+    document.getElementById('zoom-out').addEventListener('click', function () {
+        if (fontSize > 10) {  // Minimum font size limit
+            fontSize -= 2;
+            updateFontSize();
+        }
+    });
+
+    // Reset Zoom Button
+    document.getElementById('reset-zoom').addEventListener('click', function () {
+        fontSize = 16;  // Reset to default font size
+        updateFontSize();
+    });
+
+    // Keyboard Shortcuts
+    document.addEventListener('keydown', function (e) {
+        if (e.ctrlKey && e.key === '+') { // Ctrl + Plus
+            e.preventDefault();
+            fontSize += 2;
+            updateFontSize();
+        }
+        if (e.ctrlKey && e.key === '-') { // Ctrl + Minus
+            e.preventDefault();
+            if (fontSize > 10) {
+                fontSize -= 2;
+                updateFontSize();
+            }
+        }
+        if (e.ctrlKey && e.key === '0') { // Ctrl + 0
+            e.preventDefault();
+            fontSize = 16;
+            updateFontSize();
+        }
+    });
+
     let currentUtterance = null;
+    const volumeSlider = document.getElementById('volume-slider');
+    window.onscroll = function () {
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollTopBtn.style.display = "block";
+        } else {
+            scrollTopBtn.style.display = "none";
+        }
+    };
+
+    // Scroll to the top when button clicked
+    document.getElementById('scrollTopBtn').onclick = function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     // Load saved theme from localStorage if it exists
     const savedTheme = localStorage.getItem('theme');
@@ -56,22 +119,27 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem('language', urlLanguage);
     }
 
-    textToSpeechButton.addEventListener('click', () => {
+    //textToSpeechButton.addEventListener('click', () => 
+    function TTS() {
         const newsContent = $('#headline').text()+". "+document.querySelector('#news-topic .news-content').innerText;
         if (newsContent.trim()) {
             if (window.speechSynthesis.speaking && currentUtterance) {
                 // If speech is already playing, cancel it
                 window.speechSynthesis.cancel();
+                volumeSlider.disabled = false;
                 currentUtterance = null;
             }
             else if (!currentUtterance) {
                 // Create a new SpeechSynthesisUtterance instance if it doesn't exist
                 currentUtterance = new SpeechSynthesisUtterance(newsContent);
+                currentUtterance.volume = volumeSlider.value;
                 currentUtterance.lang = tlang; // Adjust the language if needed
                 window.speechSynthesis.speak(currentUtterance);
+                volumeSlider.disabled = true;
                 currentUtterance.onend = () => {
                     // Reset currentUtterance when speaking ends
                     currentUtterance = null;
+                    volumeSlider.disabled = false;
                 };
             } else {
                 // Reset the text if currentUtterance exists
@@ -82,16 +150,28 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             console.error('No content to read');
         }
+    };
+
+    textToSpeechButton.addEventListener('click', () => {
+        TTS();
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.ctrlKey && e.key === '2') { // Ctrl + 2
+            TTS();
+        }
     });
 
     window.addEventListener('beforeunload', () => {
         window.speechSynthesis.cancel();
+        volumeSlider.disabled = false;
     });
 
-    $('#translate').on('click', function () {
+    function TTT() {
         if (window.speechSynthesis.speaking && currentUtterance) {
             // If speech is already playing, cancel it
             window.speechSynthesis.cancel();
+            volumeSlider.disabled = false;
             currentUtterance = null;
         }
         var curlang = $('#language-dropdown').val();
@@ -134,6 +214,16 @@ document.addEventListener("DOMContentLoaded", function() {
                     alert('Error while translating');
                 }
             });
+        }
+    };
+
+    $('#translate').on('click', function () {
+        TTT();
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.ctrlKey && e.key === '1') { // Ctrl + 1
+            TTT();
         }
     });
 });
