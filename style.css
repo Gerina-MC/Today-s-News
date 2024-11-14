@@ -383,7 +383,6 @@ body.high-contrast #translate {
     margin: 0 0 20px;
 }
 
-css
 #scrollTopBtn {
     display: none; /* Hidden by default */
     position: fixed;
@@ -405,9 +404,6 @@ css
     background-color: #0056b3; /* Darker blue on hover */
 }
 
-For volume slider
-
-css
 #volume-slider {
     width: 150px;
 }
